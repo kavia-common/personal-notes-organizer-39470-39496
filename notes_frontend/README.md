@@ -1,82 +1,43 @@
-# Lightweight React Template for KAVIA
+# Personal Notes - Ocean Professional Theme
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A modern, lightweight React app to create, edit, and organize personal notes. Features a responsive layout with a sidebar, notes list, and editor. Supports optional backend integration via environment variables and falls back to local storage when no backend is configured.
 
-## Features
+## Quick Start
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- `npm start` — runs at http://localhost:3000
+- `npm test` — minimal sanity tests
+- `npm run build` — production build
 
-## Getting Started
+## Environment Variables
 
-In the project directory, you can run:
+The UI respects the following if present (do not commit secrets):
+- `REACT_APP_API_BASE`: Base URL for the backend API (e.g., https://api.example.com). If not set, the app uses local storage/in-memory fallback.
+- `REACT_APP_BACKEND_URL`, `REACT_APP_FRONTEND_URL`, `REACT_APP_WS_URL`, `REACT_APP_NODE_ENV`, `REACT_APP_NEXT_TELEMETRY_DISABLED`, `REACT_APP_ENABLE_SOURCE_MAPS`, `REACT_APP_PORT`, `REACT_APP_TRUST_PROXY`, `REACT_APP_LOG_LEVEL`, `REACT_APP_HEALTHCHECK_PATH`, `REACT_APP_FEATURE_FLAGS`, `REACT_APP_EXPERIMENTS_ENABLED`: Reserved for platform configuration.
 
-### `npm start`
-
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
+Create a `.env` file (example):
+```
+REACT_APP_API_BASE=
 ```
 
-### Components
+## Ocean Professional Style
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+Primary: #2563EB
+Secondary: #F59E0B
+Error: #EF4444
+Background: #f9fafb
+Surface: #ffffff
+Text: #111827
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+The layout uses subtle gradients, rounded corners, and shadows with smooth transitions.
 
-## Learn More
+## Functionality
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Create, select, edit, and delete notes
+- Tag/category management
+- Search and tag filtering
+- Local-only mode when no backend is configured
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Backend endpoints expected if provided:
+- GET/POST /notes
+- GET/PUT/DELETE /notes/:id
+- GET/POST/DELETE /tags
